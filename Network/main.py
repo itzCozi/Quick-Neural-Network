@@ -3,7 +3,11 @@ print("Initalizing Neural-Network please wait...")
 
 # Imports
 import random
+import os, sys
 import numpy as np
+
+# Clear function
+CC = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 # create a neural network
 class neural_network:
@@ -135,7 +139,7 @@ class population:
 		self.hidden_nodes = hidden_nodes
 		self.output_nodes = output_nodes
 		self.neural_networks = []
-		for i in range(size):
+		for i in range(int(size)):
 			self.neural_networks.append((input_nodes, hidden_nodes, output_nodes))
 
 	# get the best neural network
@@ -272,10 +276,11 @@ def check_bias(neural_network):
 
 
 # create a neural network (DEMO DON'T COPY IN CODE)
+CC()
 Selected_input_nodes = input('Input Nodes: ')
 Selected_hidden_nodes = input('Hidden Nodes: ')
 Selected_output_nodes = input('Output Nodes: ')
-popYorN = input('Do you want to use a population of Y or N: ')
+popYorN = input('Do you want to use a population of networks? Y or N: ')
 
 if popYorN == 'y':
 	pop_size = input('Population size: ')
